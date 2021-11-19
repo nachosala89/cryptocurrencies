@@ -67,7 +67,7 @@ const CryptoList = () => {
     <>
       <Header title="CRYPTO CURRENCIES" img={cryptoHeader} value={totalMarketCap} />
       <h2>LAST 24 HOURS CHANGES</h2>
-      <ul className="row">
+      <ul className="row changes-list">
         <li key="1" className="col-6 pt-3">
           <Link to="/growing">
             <img src={statsUp} alt="Growing Stats" className="w-75" />
@@ -96,10 +96,10 @@ const CryptoList = () => {
         </li>
       </ul>
       <h2>RANKING</h2>
-      <ul className="row">
+      <ul className="row ranking-list">
         {rankLinks.map((link) => (
           (link.id === 5)
-            ? <li className="d-none" />
+            ? <li key={link.id} className="d-none" />
             : (
               <li key={link.id} className="col-6 pt-3">
                 <Link to={`/rank-${link.start}`}>

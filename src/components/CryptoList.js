@@ -1,8 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { fetchCryptos } from '../redux/cryptos/cryptos';
 import Header from './Header';
+import cryptoRank from '../img/cryptosRank.png';
+import cryptoHeader from '../img/cryptocurrencies.png';
+import statsUp from '../img/stats-up.svg';
+import statsDown from '../img/stats-down.svg';
 
 const CryptoList = () => {
   const rankLinks = [
@@ -20,12 +26,15 @@ const CryptoList = () => {
     },
     {
       id: 5,
+    },
+    {
+      id: 6,
       title: '51-75',
       img: '',
       start: '51',
     },
     {
-      id: 6,
+      id: 7,
       title: '+76',
       img: '',
       start: '76',
@@ -56,12 +65,14 @@ const CryptoList = () => {
 
   return (
     <>
-      <Header title="Cryptocurrencies" img="https://picsum.photos/200/300" value={totalMarketCap} />
-      <h2>Last 24 hours changes</h2>
+      <Header title="CRYPTO CURRENCIES" img={cryptoHeader} value={totalMarketCap} />
+      <h2>LAST 24 HOURS CHANGES</h2>
       <ul className="row">
-        <li key="1" className="col-6">
+        <li key="1" className="col-6 pt-3">
           <Link to="/growing">
-            <h3>Growing Assets</h3>
+            <img src={statsUp} alt="Growing Stats" className="w-75" />
+            <FontAwesomeIcon icon={faArrowAltCircleRight} className="float-end" />
+            <h3 className="pt-2">Growing Assets</h3>
             <h4>Most growing:</h4>
             <p>
               {(maxCrypto !== null)
@@ -70,9 +81,11 @@ const CryptoList = () => {
             </p>
           </Link>
         </li>
-        <li key="2" className="col-6">
-          <Link to="./declining">
-            <h3>Declining Assets</h3>
+        <li key="2" className="col-6 pt-3">
+          <Link to="/declining">
+            <img src={statsDown} alt="Declining Stats" className="w-75" />
+            <FontAwesomeIcon icon={faArrowAltCircleRight} className="float-end" />
+            <h3 className="pt-2">Declining Assets</h3>
             <h4>Most Declining:</h4>
             <p>
               {(minCrypto !== null)
@@ -82,15 +95,21 @@ const CryptoList = () => {
           </Link>
         </li>
       </ul>
-      <h2>Ranking</h2>
+      <h2>RANKING</h2>
       <ul className="row">
         {rankLinks.map((link) => (
-          <li key={link.id} className="col-6">
-            <Link to={`/rank-${link.start}`}>
-              <h3>{link.title}</h3>
-              <p>{`# ${link.start} ${cryptos.find((crypto) => crypto.rank === link.start).name}`}</p>
-            </Link>
-          </li>
+          (link.id === 5)
+            ? <li className="d-none" />
+            : (
+              <li key={link.id} className="col-6 pt-3">
+                <Link to={`/rank-${link.start}`}>
+                  <img src={cryptoRank} alt="Cryptocurrencies" className="w-75" />
+                  <FontAwesomeIcon icon={faArrowAltCircleRight} className="float-end" />
+                  <h3 className="pt-2 rank-title">{link.title}</h3>
+                  <p>{`# ${link.start} ${(cryptos.length !== 0) ? cryptos.find((crypto) => crypto.rank === link.start).name : '...'}`}</p>
+                </Link>
+              </li>
+            )
         ))}
       </ul>
     </>

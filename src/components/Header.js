@@ -4,13 +4,16 @@ const Header = (props) => {
   const { img, title, value } = props;
 
   return (
-    <div className="row">
-      <img src={img} alt="" className="col-6" />
-      <div className="col-6">
-        <h2>{title}</h2>
+    <div className="row header">
+      <div className="col-6 d-flex justify-content-center">
+        <img src={img} alt="" className="w-75 py-2 img1" />
+      </div>
+      <div className="col-6 d-flex flex-column justify-content-center">
+        <h1>{title}</h1>
         <p>
-          <span>Total Market: U$D </span>
-          {(value === 0) ? '...' : value}
+          <span>Total Market: </span>
+          <br />
+          {`U$D ${(value === 0) ? '...' : parseInt(value, 10)}`}
         </p>
       </div>
     </div>

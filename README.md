@@ -1,10 +1,18 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Crypto Currencies Metrics
+# The Crypto Cave 
 
 Website to display some data about the most important crypto currencies in real time. The data is consumed from the API https://docs.coincap.io/. The currencies can be filter by the price change in the last 24 hours or by position in the ranking. The design was based on [this template](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)).
 
 ![screenshot](./screenshot.png)
+
+## Live Demo
+
+[The Crypto Cave](https://thecryptocave.netlify.app/)
+
+## Explanatory Video
+
+[Here](https://www.loom.com/share/44149658d99144b7ae7f65e7f662a4c8)
 
 ## Built With
 

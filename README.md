@@ -2,7 +2,7 @@
 
 # The Crypto Cave 
 
-Website to display some data about the most important crypto currencies in real time. The data is consumed from the API https://docs.coincap.io/. The currencies can be filter by the price change in the last 24 hours or by position in the ranking. The design was based on [this template](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)).
+A website that displays some data about the most important cryptocurrencies in real-time. The data is consumed from the API https://docs.coincap.io/. The currencies can be filtered by the price change in the last 24 hours or by position in the ranking. The design was based on [this template](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)).
 
 ![screenshot](./screenshot.png)
 
